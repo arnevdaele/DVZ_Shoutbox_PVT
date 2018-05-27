@@ -284,7 +284,7 @@ always=Always check if on display to refresh',
 
     // templates
     $templates = [
-        'dvz_shoutbox_panel' => '<div class="panel">
+        'dvz_shoutbox_panel' => '<div class="chatbar">
 <form>
 <input type="text" class="text" placeholder="{$lang->dvz_sb_default}" maxlength="{$maxlength}" autocomplete="off" />
 <input type="submit" style="display:none" />
@@ -302,7 +302,7 @@ always=Always check if on display to refresh',
 
 {$panel}
 
-<div class="window" style="height:{$mybb->settings[\'dvz_sb_height\']}px">
+<div class="window" style="min-height:250px;">
 <div class="data">
 {$html}
 </div>
@@ -311,6 +311,7 @@ always=Always check if on display to refresh',
 </div>
 
 <script type="text/javascript" src="{$mybb->settings[\'bburl\']}/jscripts/dvz_shoutbox.js"></script>
+<script type="text/javascript" src="{$mybb->settings[\'bburl\']}/jscripts/avd_shoutbox_functions.js"></script>
 {$javascript}
 
 </div>',
@@ -1330,7 +1331,7 @@ dvz_shoutbox.lang = [\'' . $lang->dvz_sb_delete_confirm . '\', \'' . str_replace
             $text = $usernameString . str_replace($replace, "",$text);
         }
 
-        $avatar   = '<img src="' . (empty($data['avatar']) ? htmlspecialchars_uni($mybb->settings['useravatar']) : htmlspecialchars_uni($data['avatar'])) . '" alt="avatar" />';
+        $avatar   = '<img style="height:50px;width:50px;" src="' . (empty($data['avatar']) ? htmlspecialchars_uni($mybb->settings['useravatar']) : htmlspecialchars_uni($data['avatar'])) . '" alt="avatar" />';
         $user   = '<span class="username" data-id="'. (int)$data['uid'] .'"><a>' . format_name($data['username'], $data['usergroup'], $data['displaygroup']) . '</a></span>';
 
         $staticLink = $mybb->settings['bburl'] . '/index.php?action=shoutbox_archive&sid=' . $id . '#sid' . $id;
@@ -1377,7 +1378,7 @@ dvz_shoutbox.lang = [\'' . $lang->dvz_sb_delete_confirm . '\', \'' . str_replace
 
         return '
 <div class="' . $classes . '" data-id="' . $id . '" data-username="'.$data['username'].'"' . $attributes . '>
-    <div class="avatar">' . $avatar . '</div>
+    <div class="sbavatar">' . $avatar . '</div>
     <div class="user">' . $user . '</div>
     <div class="text">' . $text . '</div>
     <div class="info">' . $notes . '<a href="' . $staticLink . '"><span class="date">' . $date . '</span></a></div>
