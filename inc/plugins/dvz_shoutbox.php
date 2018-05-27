@@ -23,7 +23,7 @@ function dvz_shoutbox_info()
         'website'       => 'https://devilshakerz.com/ & https://arnevandaele.com',
         'author'        => 'Tomasz \'Devilshakerz\' Mlynski & Arne Van Daele',
         'authorsite'    => 'https://devilshakerz.com/',
-        'version'       => '2.3.2 C1.0',
+        'version'       => '0.9.1s',
         'codename'      => 'dvz_shoutbox_pvt',
         'compatibility' => '18*',
     ];
